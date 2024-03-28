@@ -1,2 +1,2 @@
-Django>=5.00,<5.04
+Django==4.2.8
 pre-commit
