@@ -5,6 +5,7 @@
         <div class="post">
             <h1><a href="{% url 'post_detail' id=post.id %}">{{ post.title }}</a></h1>
             <p>{{ post.text|truncatechars:200 }}</p>
+            <p>{{ post.author }}</p>
             <p class="date">created: {{ post.created_date|date:'d-m-Y' }}</p>
         </div>
     {% endfor %}
