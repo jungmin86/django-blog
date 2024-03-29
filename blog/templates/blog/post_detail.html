@@ -8,7 +8,7 @@
         {% endif %}
         <h1>{{ post.title }}</h1>
         <p>{{ post.text|linebreaksbr }}</p>
-        <p>{{ post.author }}</p>
+        <p>author: {{ post.author }}</p>
 
         {% if post.published_date %}
             <div class="date">

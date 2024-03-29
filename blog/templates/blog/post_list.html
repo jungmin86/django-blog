@@ -5,7 +5,7 @@
         <div class="post">
             <h1><a href="{% url 'post_detail' id=post.id %}">{{ post.title }}</a></h1>
             <p>{{ post.text|linebreaksbr }}</p>
-            <p>{{ post.author }}</p>
+            <p>author: {{ post.author }}</p>
             <div class="date">
                 <p>published: {{ post.published_date }}</p>
             </div>
