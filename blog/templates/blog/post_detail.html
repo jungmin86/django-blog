@@ -19,4 +19,23 @@
         {% endif %}
 
     </div>
+    <hr>
+<a class="btn btn-default" href="{% url 'add_comment_to_post' id=post.id %}">댓글을 적어주세요</a>
+{% for comment in post.comments.all %}
+    {% if user.is_authenticated or comment.approved_comment %}
+    <div class="comment">
+        <div class="date">
+            {% if not comment.approved_comment %}
+                <a class="btn btn-default" href="{% url 'comment_remove' id=comment.id %}"><span class="glyphicon glyphicon-remove"></span></a>
+                <a class="btn btn-default" href="{% url 'comment_approve' id=comment.id %}"><span class="glyphicon glyphicon-ok"></span></a>
+            {% endif %}
+            {{ comment.created_date }}
+        </div>
+        <strong>{{ comment.author }}</strong>
+        <p>{{ comment.text|linebreaks }}</p>
+    </div>
+    {% endif %}
+{% empty %}
+    <p>아직 댓글이 없어요. 선플 부탁드려요 :)</p>
+{% endfor %}
 {% endblock %}
